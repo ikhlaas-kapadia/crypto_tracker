@@ -1,0 +1,29 @@
+.coin-small-image {
+    width: 30px;
+    height: 30px;
+}
+
+.coin-link {
+    text-decoration: none;
+}
+.coin-link-container {
+    display: flex;
+    gap: 10px;
+}
+
+.coin-name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.coin-symbol {
+    font-size: 0.9em
+}
+
+.coin-price-up {
+    color: #28a745;
+}
+
+.coin-price-down {
+    color: #dc3545;
+}

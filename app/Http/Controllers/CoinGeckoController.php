@@ -17,12 +17,11 @@ class CoinGeckoController extends Controller
     {
         try{
             $data = $this->coinGeckoApiService->getCoinsList();
-            if($data){
-                // print_r(count($data));
-                return view('home', ['data' => $data]) ;
-
+            if(isset($data['error'])){
+                return response()->json($data, 500);
             }
-            return null;
+            // print_r(count($data));
+            return view('home', ['data' => $data]) ;
         } 
         catch (\Exception $e) {
             throw ('API request failed ' . $e->getMessage());
@@ -34,11 +33,11 @@ class CoinGeckoController extends Controller
     {
         try{
             $data = $this->coinGeckoApiService->getCoinInfo($id);
-            if($data){
-                return view('home',$data) ;
-                // print_r(count($data));
+            if(isset($data['error'])){
+                return response()->json($data, 500);
             }
-            return null;
+                return view('coin-info', ['data' => $data]) ;
+                // print_r(count($data));
         } 
         catch (\Exception $e) {
             throw ('API request failed ' . $e->getMessage());
