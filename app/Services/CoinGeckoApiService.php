@@ -37,7 +37,7 @@ class CoinGeckoApiService {
     }
 
    
-    public function getCoinsList($page = 1, $resultsPerPage =20){
+    public function getCoinsList($page = 1, $resultsPerPage =100){
 
         $cacheKey = 'coins_list_' . $page . '_' . $resultsPerPage;
         return Cache::remember($cacheKey, $this->cacheDuration, function () use ($page, $resultsPerPage) {

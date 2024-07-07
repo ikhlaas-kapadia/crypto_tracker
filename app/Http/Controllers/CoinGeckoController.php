@@ -24,8 +24,7 @@ class CoinGeckoController extends Controller
             return view('home', ['data' => $data]) ;
         } 
         catch (\Exception $e) {
-            throw ('API request failed ' . $e->getMessage());
-            return null;
+            return response ('API request failed ' . $e->getMessage()); 
         }
     }
 
@@ -40,8 +39,7 @@ class CoinGeckoController extends Controller
                 // print_r(count($data));
         } 
         catch (\Exception $e) {
-            throw ('API request failed ' . $e->getMessage());
-            return null;
+            return response ('API request failed ' . $e->getMessage()); 
         }
     }
 
