@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use App\Models\User;
 use Exception;
 use Illuminate\Database\QueryException;
@@ -28,7 +29,16 @@ class AuthController extends Controller
                 'last_name' => $request->lastname,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-            ]);            
+            ]);
+            if($registeredUser){
+                // dump($registeredUser);
+                // die();
+                Portfolio::create([
+                'user_id' => $registeredUser->id,
+                'name' => $registeredUser->first_name,
+                'coins' => ''                
+                ]);
+            }
         } catch (\Illuminate\Database\QueryException $e) {
             
         } catch (\Exception $e) {
