@@ -1,14 +1,14 @@
 
-<div>
-    <h3>{{ $slot }}</h3>
+<div class>
     <?php
+    // var_dump($data);
         $coins;
-        if(count($data)) {
+        if($data) {
             $coins = $data;
         }
     ?>
  
-    <table id="example" class="table table-striped display nowrap" style="width:100%">
+    <table id="coins-table" class="stripe" style="width:100%">
         <thead>
             <tr>
                 <th></th>
@@ -24,11 +24,11 @@
         <tbody>
             @if($coins)
             @foreach ($coins as $coin)
-                <tr id="{{ $coin['id'] }}">
-                    <td><span><i class="fa-regular fa-star"></i></span></td>
+                <tr id="{{ $coin['id'] }}" class="test">
+                    <td><span><i class="far fa-star star" aria-hidden></i></span></td>
                     <td><span>{{$coin['market_cap_rank']}}</span></td>
                     <td id={{ $coin['id'] }}> 
-                        <a href="" class="coin-link">
+                        <a href="/coin/{{$coin['id']}}" class="coin-link">
                             <div class="coin-link-container">
                                 <img class="coin-small-image" src="{{ $coin['image']}}" alt="">
                                 <div class="coin-name-container">
@@ -84,13 +84,14 @@
 </div>
 @section('datatable-css')
     <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css" rel="stylesheet" type="text/css" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css" rel="stylesheet" type="text/css" /> --}}
 @endsection
 
 @push('datatable-script')
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+   <script> src="https://cdn.datatables.net/scroller/2.4.3/js/dataTables.scroller.js"</script>
+    {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script> --}}
 @endpush
 
 @push('coins-view-script')

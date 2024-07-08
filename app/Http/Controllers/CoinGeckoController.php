@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class CoinGeckoController extends Controller
 {
     protected $coinGeckoApiService;
+    
     public function __construct(CoinGeckoApiService $apiService)
     {
         $this->coinGeckoApiService = $apiService;

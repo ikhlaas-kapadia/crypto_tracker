@@ -15,9 +15,10 @@
 @else
     {{-- {{dd($data)}} --}}
 
-    <form method="POST" action="{{ route('addCoin') }}">
+    {{-- <form method="POST" action="{{ route('addCoin') }}"> --}}
+    <form method="" action="">
         @csrf
-        <button type="submit" class="btn btn-success logout-btn">Add coin</button>
+        <button type="submit" class="btn btn-success logout-btn">Add coin(coming soon)</button>
         {{-- <button type="submit" class="btn btn-link">Logout</button> --}}
     </form>
     @foreach ($data as $portfolio)
