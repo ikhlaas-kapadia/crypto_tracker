@@ -20,11 +20,8 @@
         <div class="alert alert-success">
             {{ session('register-success') }}
         </div>
-        @elseif(session('login-error'))
-        <div class="alert alert-error">
-            {{ session('login-error') }}
-        </div>
         @endif
+
         <form class="form-signin" method="POST", action="{{route('login')}}">
             @csrf
             <label for="inputEmail" class="sr-only">Email address</label>
@@ -32,7 +29,6 @@
             
             @if ($errors->has('email'))
             <span class="text-danger">{{$errors->first('email')}}</span>
-            </div>
             @endif
 
             <label for="inputPassword" class="sr-only">Password</label>
@@ -40,12 +36,16 @@
 
             @if ($errors->has('password'))
             <span class="text-danger">{{$errors->first('password')}}</span>
-            </div>
             @endif
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
           </form>
+        
+          @if(session('login-error'))
+          <div class="alert alert-error">
+              {{ session('login-error') }}
+          </div>
+          @endif
     </div>
 
 </div>

@@ -28,7 +28,6 @@
                         
             @if ($errors->has('firstname'))
             <span class="text-danger">{{$errors->first('firstname')}}</span>
-            </div>
             @endif
 
             <label for="lastName" class="sr-only">Last Name</label>
@@ -36,7 +35,6 @@
                         
             @if ($errors->has('lastname'))
             <span class="text-danger">{{$errors->first('lastname')}}</span>
-            </div>
             @endif
 
             <label for="inputEmail" class="sr-only">Email address</label>
@@ -44,7 +42,6 @@
             
             @if ($errors->has('email'))
             <span class="text-danger">{{$errors->first('email')}}</span>
-            </div>
             @endif
 
             <label for="inputPassword" class="sr-only">Password</label>
@@ -52,7 +49,6 @@
 
             @if ($errors->has('password'))
             <span class="text-danger">{{$errors->first('password')}}</span>
-            </div>
             @endif
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
